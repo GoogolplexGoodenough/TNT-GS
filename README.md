@@ -23,6 +23,12 @@ or
 git clone https://github.com/GoogolplexGoodenough/TNT-GS --recursive
 ```
 
+And then using the command for installing dependency:
+```shell
+pip install -r requirements.txt
+pip install submodules/simple-knn
+pip install submodules/diff_TNT_rasterization
+```
 
 ## Running
 
