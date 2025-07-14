@@ -3,12 +3,51 @@ TNT-GS: Truncated and Tailored Gaussian Splatting.
 
 ## Visable Demos
 
-You can view Demos here:
+You can explore our visual demonstrations at the link below:
 
 [**TNT-GS Webpage**](https://googolplexgoodenough.github.io/TNT-GS-webpage/)
 
-And it will be updated with more examples.
+More examples will be added soon—stay tuned!
 
-## Paper and Code
+## Code
 
-Paper and code is coming soon.
+
+This repository includes submodules. To clone it properly, please use one of the following commands:
+```shell
+# SSH
+git clone git@github.com:GoogolplexGoodenough/TNT-GS.git --recursive
+```
+or
+```shell
+# HTTPS
+git clone https://github.com/GoogolplexGoodenough/TNT-GS --recursive
+```
+
+
+## Running
+
+To launch the optimizer, use the following command:
+
+```shell
+python train.py -s <path to COLMAP or NeRF Synthetic dataset> -m <output path> --ouput_size <desired model size>
+```
+
+The --output_size argument specifies the target model size (MB). (Default: 50). Generally we set it to be ~50% of SOTA model size for compactness in the paper.
+
+The command-line arguments for train.py are largely consistent with those of 2D Gaussian Splatting. [2DGS](https://github.com/hbb1/2d-gaussian-splatting).
+
+
+## DTU Dataset Demo
+
+We provide a demo script for the DTU dataset. To run it, use:
+
+```shell
+python auto_run_DTU.py
+```
+
+Please modify the dataset path before running the script. The DTU dataset we use can be downloaded from this [Google Drive Link](https://drive.google.com/drive/folders/1SJFgt8qhQomHX55Q4xSvYE2C6-8tFll9), which is shared by the [2DGS repository](https://github.com/hbb1/2d-gaussian-splatting).
+
+
+## More results
+
+We provide the CUDA code based on [GSSurfels](https://github.com/turandai/gaussian_surfels.git). And the code based on [2DGS](https://github.com/hbb1/2d-gaussian-splatting) with more results ans scripts is coming soon.

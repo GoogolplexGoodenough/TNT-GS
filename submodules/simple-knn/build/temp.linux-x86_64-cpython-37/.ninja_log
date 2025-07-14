@@ -1,0 +1,4 @@
+# ninja log v5
+1	8417	1732194753000000000	/user103/gs/gs_submodules/simple-knn/build/temp.linux-x86_64-cpython-37/simple_knn.o	f87496b7f87b1395
+0	35957	1732194780000000000	/user103/gs/gs_submodules/simple-knn/build/temp.linux-x86_64-cpython-37/ext.o	36fb019ee2660e70
+1	62002	1732194807000000000	/user103/gs/gs_submodules/simple-knn/build/temp.linux-x86_64-cpython-37/spatial.o	c466dd3da6e712cb

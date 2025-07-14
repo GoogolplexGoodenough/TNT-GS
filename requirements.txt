@@ -1,0 +1,14 @@
+einops==0.8.1
+imageio==2.37.0
+matplotlib==3.10.3
+numpy==2.2.6
+opencv-python==4.12.0.88
+pandas==2.3.1
+pillow==11.3.0
+plyfile==1.1.2
+torch==2.7.1
+torchaudio==2.7.1
+torchvision==0.22.1
+tqdm==4.67.1
+trimesh==4.7.0
+wandb==0.21.0

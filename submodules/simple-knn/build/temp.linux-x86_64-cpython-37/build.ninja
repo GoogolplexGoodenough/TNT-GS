@@ -1,0 +1,35 @@
+ninja_required_version = 1.3
+cxx = c++
+nvcc = /usr/local/cuda/bin/nvcc
+
+cflags = -pthread -B /user103/Anaconda3/envs/GS/compiler_compat -Wl,--sysroot=/ -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/user103/Anaconda3/envs/GS/lib/python3.7/site-packages/torch/include -I/user103/Anaconda3/envs/GS/lib/python3.7/site-packages/torch/include/torch/csrc/api/include -I/user103/Anaconda3/envs/GS/lib/python3.7/site-packages/torch/include/TH -I/user103/Anaconda3/envs/GS/lib/python3.7/site-packages/torch/include/THC -I/usr/local/cuda/include -I/user103/Anaconda3/envs/GS/include/python3.7m -c
+post_cflags = -O3 -DTORCH_API_INCLUDE_EXTENSION_H '-DPYBIND11_COMPILER_TYPE="_gcc"' '-DPYBIND11_STDLIB="_libstdcpp"' '-DPYBIND11_BUILD_ABI="_cxxabi1011"' -DTORCH_EXTENSION_NAME=_C -D_GLIBCXX_USE_CXX11_ABI=0 -std=c++14
+cuda_cflags = -I/user103/Anaconda3/envs/GS/lib/python3.7/site-packages/torch/include -I/user103/Anaconda3/envs/GS/lib/python3.7/site-packages/torch/include/torch/csrc/api/include -I/user103/Anaconda3/envs/GS/lib/python3.7/site-packages/torch/include/TH -I/user103/Anaconda3/envs/GS/lib/python3.7/site-packages/torch/include/THC -I/usr/local/cuda/include -I/user103/Anaconda3/envs/GS/include/python3.7m -c
+cuda_post_cflags = -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''"'"'-fPIC'"'"'' -I/user103/gs/gs_submodules/simple-knn/third_party/glm/ -gencode arch=compute_80,code=sm_80 -DTORCH_API_INCLUDE_EXTENSION_H '-DPYBIND11_COMPILER_TYPE="_gcc"' '-DPYBIND11_STDLIB="_libstdcpp"' '-DPYBIND11_BUILD_ABI="_cxxabi1011"' -DTORCH_EXTENSION_NAME=_C -D_GLIBCXX_USE_CXX11_ABI=0 -std=c++14
+cuda_dlink_post_cflags = 
+ldflags = 
+
+rule compile
+  command = $cxx -MMD -MF $out.d $cflags -c $in -o $out $post_cflags
+  depfile = $out.d
+  deps = gcc
+
+rule cuda_compile
+  depfile = $out.d
+  deps = gcc
+  command = $nvcc  $cuda_cflags -c $in -o $out $cuda_post_cflags
+
+
+
+
+
+build /user103/gs/gs_submodules/simple-knn/build/temp.linux-x86_64-cpython-37/ext.o: compile /user103/gs/gs_submodules/simple-knn/ext.cpp
+build /user103/gs/gs_submodules/simple-knn/build/temp.linux-x86_64-cpython-37/simple_knn.o: cuda_compile /user103/gs/gs_submodules/simple-knn/simple_knn.cu
+build /user103/gs/gs_submodules/simple-knn/build/temp.linux-x86_64-cpython-37/spatial.o: cuda_compile /user103/gs/gs_submodules/simple-knn/spatial.cu
+
+
+
+
+
+
+
