@@ -36,7 +36,7 @@ pip install submodules/diff_TNT_rasterization
 To launch the optimizer, use the following command:
 
 ```shell
-python train.py -s <path to COLMAP or NeRF Synthetic dataset> -m <output path> --ouput_size <desired model size>
+python train.py -s <path to COLMAP or NeRF Synthetic dataset> -m <output path> --output_size <desired model size>
 ```
 
 The --output_size argument specifies the target model size (MB). (Default: 50). Generally we set it to be ~50% of SOTA model size for compactness in the paper.
