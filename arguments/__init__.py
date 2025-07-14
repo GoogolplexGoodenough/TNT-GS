@@ -89,7 +89,7 @@ class OptimizationParams(ParamGroup):
         self.densify_grad_threshold = 0.0003
         
         # New
-        self.prune_contrib_thres = 1
+        self.prune_contrib_thres = 0.1
         self.lambda_normal = 0.05
         self.lambda_dist = 0
         self.prune_opacity_threshold = 0.01
