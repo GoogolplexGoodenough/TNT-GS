@@ -23,7 +23,8 @@ or
 git clone https://github.com/GoogolplexGoodenough/TNT-GS --recursive
 ```
 
-And then using the command for installing dependency:
+And install the torch and torchvision packages from the official [Pytorch website](https://pytorch.org/). Make sure that the CUDA version matches your local NVCC version to ensure proper GPU support, especially for compiling CUDA-based submodules.
+Once PyTorch is installed, use the following command to install the remaining dependencies:
 ```shell
 pip install -r requirements.txt
 pip install submodules/simple-knn
