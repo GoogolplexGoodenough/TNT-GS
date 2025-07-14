@@ -1,0 +1,3 @@
+[submodule "submodules/diff_TNT_rasterization"]
+	path = submodules/diff_TNT_rasterization
+	url = https://github.com/GoogolplexGoodenough/diff_TNT_rasterization.git
